@@ -1,0 +1,16 @@
+name: "Put a name here"
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  action-one:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout/@v3
+
+      - name: Greet
+        run: echo "Hello World"
