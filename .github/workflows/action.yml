@@ -36,5 +36,5 @@ jobs:
     if: needs.mount_greet.outputs.time != 0
     steps:
       - env:
-          TIME: needs.moutn_greet.outputs.time
+          TIME: ${{ needs.moutn_greet.outputs.time }}
         run: echo "The output value was $TIME"
