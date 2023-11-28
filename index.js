@@ -5,8 +5,8 @@ try {
   const nameToGreet = core.getInput("input_one");
   //console.log(`Hello ${nameToGreet}!`);
 
-  const time = new Date();
-  core.setOutput("time", time);
+  //const time = new Date();
+  core.setOutput("time", `Hello ${nameToGreet}!`);
 } catch(err) {
   core.setFailed(err.message);
 }
