@@ -23,8 +23,10 @@ jobs:
           node-version: "18.x"
 
       - name: Install dependencies
-      - run: npm install
-      - run: npm install @actions/core @actions/github --save-dev
+        run: npm install
+
+      - name: Add actions/core and actions/github
+        run: npm install @actions/core @actions/github --save-dev
 
       - name: Run JavaScript file
         id: set_output_time
