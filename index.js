@@ -7,7 +7,7 @@ try {
 
   const time = new Date();
   //core.setOutput("time", time);
-  core.setOutput(time);
+  core.setOutput("TESTING OUTPUT");
 } catch(err) {
   core.setFailed(err.message);
 }
