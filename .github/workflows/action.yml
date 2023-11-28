@@ -31,7 +31,7 @@ jobs:
           echo "time=$(node index.js '${{ inputs.input_one }}')" >> $GITHUB_OUTPUT
 
   show_greet:
-    if: ${{ needs.mount_greet.outputs.time }}
+    if: needs.mount_greet.outputs.time
     needs: mount_greet
     runs-on: ubuntu-latest
     env:
