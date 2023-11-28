@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.mount_greet.outputs.time != 0
     env:
-      TIME: ${{ needs.moutn_greet.outputs.time }}
+      TIME: needs.moutn_greet.outputs.time
     steps:
       - name: Use the collected output value
         run: echo "The output value was $TIME"
