@@ -10,28 +10,32 @@ on:
         default: "World"
 
 jobs:
-  greet:
+  mount_greet:
     runs-on: ubuntu-latest
-
+    outputs:
+      time: ${{ steps.set_output_time.outputs.time }}
     steps:
       - name: Checkput Repo
         uses: actions/checkout@v3
-
       - name: Use Node
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-
       - name: Install dependencies
         run: npm install
-
       - name: Add actions/core and actions/github
         run: npm install @actions/core @actions/github --save-dev
-
       - name: Run JavaScript file
         id: set_output_time
         run: |
           echo "time=$(node index.js '${{ inputs.input_one }}')" >> $GITHUB_OUTPUT
 
+  show_greet:
+    if: ${{ needs.mount_greet.outputs.time }}
+    needs: mount_greet
+    runs-on: ubuntu-latest
+    env:
+      TIME: ${{ needs.moutn_greet.outputs.time }}
+    steps:
       - name: Use the collected output value
-        run: echo "The output value was ${{ steps.set_output_time.outputs.time }}"
+        run: echo "The output value was $TIME"
