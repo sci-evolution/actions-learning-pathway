@@ -20,10 +20,10 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v3
         with:
-          node_version: "18.x"
+          node-version: "18.x"
 
       - name: Install dependencies
-        run: npm install @actions/core --save-dev
+        run: npm install @actions/core @actions/github --save-dev
 
       - name: Run JavaScript file
         id: set_output_time
