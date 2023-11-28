@@ -31,7 +31,7 @@ jobs:
       - name: Run JavaScript file
         id: set_output_time
         run: |
-          echo "time=$(node index.js ${{ inputs.input_one }})" >> $GITHUB_OUTPUT
+          echo "time=$(node index.js '${{ inputs.input_one }}')" >> $GITHUB_OUTPUT
 
       - name: Use the collected output value
         run: echo "The output value was ${{ steps.set_output_time.outputs.time }}"
