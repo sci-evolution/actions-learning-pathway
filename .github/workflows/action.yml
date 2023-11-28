@@ -19,7 +19,7 @@ jobs:
       - name: Run JavaScript file
         id: set_output_time
         run: |
-          echo "::set-output name=time::$(node ./index.js)"
+          echo "time=$(node ./index.js)" >> "$GITHUB_OUTPUT"
 
       - name: Use the collected output value
         run: |
