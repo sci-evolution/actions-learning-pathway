@@ -33,7 +33,7 @@ jobs:
   show_greet:
     needs: mount_greet
     runs-on: ubuntu-latest
-    if: needs.mount_greet.outputs.time != "false"
+    if: needs.mount_greet.outputs.time != false
     env:
       TIME: ${{ needs.moutn_greet.outputs.time }}
     steps:
