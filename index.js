@@ -1,12 +1,6 @@
-const core = require("@actions/core");
-const github = require("@actions/github");
-
 try {
-  const nameToGreet = core.getInput("input_one");
-  //console.log(`Hello ${nameToGreet}!`);
-
-  //const time = new Date();
-  core.setOutput("time", `Hello ${nameToGreet}!`);
+  const time = new Date();
+  console.log(time);
 } catch(err) {
-  core.setFailed(err.message);
+  console.error(err.message);
 }
