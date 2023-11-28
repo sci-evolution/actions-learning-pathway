@@ -6,7 +6,8 @@ try {
   //console.log(`Hello ${nameToGreet}!`);
 
   const time = new Date().toTimeString();
-  core.setOutput("time", time);
+  //core.setOutput("time", time);
+  core.setOutput("time", `Hello ${nameToGreet}`);
 } catch(err) {
   core.setFailed(err.message);
 }
