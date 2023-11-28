@@ -6,5 +6,5 @@ try {
   console.log(output);
 } catch(err) {
   console.error(err.stack);
-  console.log(false);
+  console.log(0);
 }
