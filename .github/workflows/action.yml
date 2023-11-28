@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       input_one:
-        description: "Who to greet"
+        description: "who-to-greet"
         required: true
         default: "World"
 
