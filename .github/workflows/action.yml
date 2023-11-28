@@ -1,16 +1,26 @@
-name: "Put a name here"
+name: "Hello World JS Action"
 
 on:
-  push:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      input_one:
+        description: "Who to greet"
+        required: true
+        default: "World"
 
 jobs:
-  action-one:
+  greet:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout/@v3
+      - name: Checkput Repo
+        uses: actions/checkout@v3
 
-      - name: Greet
-        run: echo "Hello World"
+      - name: Run JavaScript file
+        id: set_output_time
+        run: |
+          echo "::set-output name=time::$(node ./index.js)"
+
+      - name: Use the collected output value
+        run: |
+          echo "The output value was ${{ steps.set_output_time.outputs.time }}"
