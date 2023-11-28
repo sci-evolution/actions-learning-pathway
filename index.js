@@ -5,5 +5,6 @@ try {
   const output = `Hello ${input_one}! Right now its ${time}!`;
   console.log(output);
 } catch(err) {
-  console.error(err.message);
+  console.error(err.stack);
+  console.log(false);
 }
